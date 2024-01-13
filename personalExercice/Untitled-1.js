@@ -54,6 +54,7 @@ console.log(factorielle(2))
 ////////////// heritage  
 ////////////// polymorphisme  
 
+
 class Livre {
     constructor(titre, auteur, anneePublication = new Date().getFullYear()) {
         this.titre = titre;
@@ -70,17 +71,18 @@ class Utilisateur {
         this.livresEmpruntes = [];
     }
 
-    #test() {
+    test() {
         console.log('test')
     }
     emprunterLivre(livre) {
         this.livresEmpruntes.push(livre);
     }
+
 }
 
 class Employe extends Utilisateur {
-    constructor(nom, age, idEmploye) {
-        super(nom, age);
+    constructor(nom, idEmploye) {
+        super(nom);
         this.idEmploye = idEmploye;
     }
 }
@@ -90,7 +92,7 @@ let livre1 = new Livre("Le Petit Prince", "Antoine de Saint-Exupéry", 1943);
 let livre2 = new Livre("1984", "George Orwell");
 
 let utilisateur = new Utilisateur("Alice", 25);
-let employe = new Employe("Bob", 30, "E123");
+let employe = new Employe("Bob","E123");
 
 utilisateur.emprunterLivre(livre1);
 employe.emprunterLivre(livre2);
@@ -102,3 +104,43 @@ console.log(employe);
 // exercice with advanced javascript features 
 ////////////// data structures 
 ////////////// spread et rest 
+
+// destructuring 
+let {titre} = livre1
+console.log('on test le titre ', titre)
+
+// faire une boucle sur les propriete de l'objet
+for(let i of Object.keys(employe)) {
+    console.log('objet', i)
+  
+}
+
+for(let i in employe){
+    console.log(`objet2, ${i}`)
+}
+Object.keys(employe).forEach(key => {
+    utilisateur.test();
+});
+
+Object.keys(employe).filter(i =>{
+    return i =='nom'
+})
+
+console.log(Object.keys(employe).filter(i =>{
+    return i =='nom'
+}))
+
+
+let testArr = ["pomme", "poire", "fraise", "raisin"]
+
+console.log(testArr)
+
+const car1 = {
+    speed: 200,
+    color: 'yellow'
+}
+const car2 = {...car1}
+
+car1.speed = 201
+
+console.log(car1.speed, car2.speed)
