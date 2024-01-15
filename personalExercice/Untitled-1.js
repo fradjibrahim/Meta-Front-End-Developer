@@ -144,3 +144,39 @@ const car2 = {...car1}
 car1.speed = 201
 
 console.log(car1.speed, car2.speed)
+
+
+let bestBoxers = new Map();
+bestBoxers.set(1, "The Champion");
+bestBoxers.set(2, "The Runner-up");
+bestBoxers.set(3, "The third place");
+bestBoxers.set(1, "Test");
+console.log(bestBoxers);
+
+class Animal {
+
+}
+
+class Dog extends Animal {
+    constructor() {
+        super();
+        this.noise = "bark";
+    }
+
+    makeNoise() {
+      return this.noise;
+    }
+}
+
+class Wolf extends Dog {
+    constructor() {
+        super();
+        this.noise = "growl";
+    }
+}
+
+var result = new Wolf();
+console.log(result.makeNoise());
+
+const  [a, b]  =  [1,2,3,4]
+console.log(b)
