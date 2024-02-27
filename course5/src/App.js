@@ -4,6 +4,10 @@ import "./App.css"
 import Fruits from "./Fruits";
 import FruitsCounter from "./FruitCounter";
 import { useState } from "react";
+import Contact from "./Contact";
+import AboutLittleLemon from "./AboutLittleLemon";
+import Homepage from "./Homepage";
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
     function handleClick() {
@@ -29,6 +33,16 @@ function App() {
 
             <Fruits fruits={fruits} />
             <FruitsCounter fruits={fruits}/>
+            <nav>
+            <Link to="/" className="nav-item">Homepage</Link>
+                <Link to="/about" className="nav-item">About Little Lemon</Link>
+                <Link to="/contact" className="nav-item">Contact</Link>
+            </nav>
+            <Routes> 
+                <Route path="/" element={<Homepage />}></Route>
+                <Route path="/about" element={<AboutLittleLemon />}></Route>
+                <Route path="/contact" element={<Contact />}></Route>
+            </Routes>
         </div>
     );
 };
