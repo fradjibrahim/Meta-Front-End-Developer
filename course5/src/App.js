@@ -8,6 +8,8 @@ import Contact from "./Contact";
 import AboutLittleLemon from "./AboutLittleLemon";
 import Homepage from "./Homepage";
 import { Routes, Route, Link } from "react-router-dom";
+import logo from "./assets/logo.png"
+
 
 function App() {
     function handleClick() {
@@ -43,6 +45,8 @@ function App() {
                 <Route path="/about" element={<AboutLittleLemon />}></Route>
                 <Route path="/contact" element={<Contact />}></Route>
             </Routes>
+            <img height="200" src={logo} alt="logo of the application"></img>
+
         </div>
     );
 };
